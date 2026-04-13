@@ -1,4 +1,3 @@
-import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
@@ -20,8 +19,8 @@ async def convert_text_message(update: Update, context: ContextTypes.DEFAULT_TYP
         converted = to_small_caps(update.message.text)
         await update.message.reply_text(converted)
 
-async def main():
-    BOT_TOKEN = "8745249835:AAGYyqJMyIQEaS5S1agSoj68Xa10S47e7dM"  # ⚠️ token yaha daal
+def main():
+    BOT_TOKEN = "8745249835:AAGYyqJMyIQEaS5S1agSoj68Xa10S47e7dM"
 
     app = Application.builder().token(BOT_TOKEN).build()
 
@@ -29,7 +28,7 @@ async def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, convert_text_message))
 
     print("Bot is running...")
-    await app.run_polling()
+    app.run_polling()   # ✅ NO await, NO asyncio
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
