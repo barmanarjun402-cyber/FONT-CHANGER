@@ -78,7 +78,7 @@ def main() -> None:
 
     Replace BOT_TOKEN with your token from @BotFather before running.
     """
-    BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+    BOT_TOKEN = "8745249835:AAGYyqJMyIQEaS5S1agSoj68Xa10S47e7dM"
 
     app = Application.builder().token(BOT_TOKEN).build()
 
